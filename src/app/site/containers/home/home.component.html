@@ -1,0 +1,198 @@
+<div class="home-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="navbar navbar-expand-md">
+          <a class="navbar-brand mx-auto" routerLink="/"><img src="/assets/images/logo.png" alt="" width="200"></a>
+          <button class="navbar-toggler border" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">
+              <i class="material-icons">menu</i>
+          </button>
+          <div class="collapse navbar-collapse" [ngbCollapse]="isCollapsed">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item" *ngIf="!(isLoggedIn$ | async)">
+                <a class="nav-link" routerLink="/login" routerLinkActive="active">Log In</a>
+              </li>
+              <li class="nav-item" *ngIf="!(isLoggedIn$ | async)">
+                <a class="nav-link" routerLink="/register" routerLinkActive="active">Sign Up</a>
+              </li>
+              <li class="nav-item" *ngIf="(isLoggedIn$ | async)">
+                <a class="nav-link dashboard" routerLink="/account" routerLinkActive="active">Dashboard</a>
+              </li>
+            </ul>
+          </div>
+          <!-- <ul class="navbar-nav ml-auto" *ngIf="(isLoggedIn$ | async)">
+            <li ngbDropdown class="nav-item profile dropdown ml-lg-4">
+              <a class="nav-link dropdown-toggle" [matMenuTriggerFor]="menuProfile" href="javascript:void(0)">Profile</a>
+              <mat-menu #menuProfile="matMenu">
+                <a class="dropdown-item" routerLink="/account">Dashboard</a>
+                <a class="dropdown-item" routerLink="/account/update-profile">Update Profile</a>
+                <a class="dropdown-item" routerLink="/account/membership">Membership</a>
+                <a class="dropdown-item" routerLink="/account/change-password">Change Password</a>
+                <a class="dropdown-item" href="javascript:void(0);" (click)="logout()">Logout</a>
+              </mat-menu>
+            </li>
+          </ul> -->
+        </nav>
+      </div> 
+      <div class="col-12 caption">
+        <div class="image text-center">
+          <img src="/assets/images/phones.png" alt="" class="img-fluid" width="250">
+        </div>
+        <h2>Join The #1 Marketplace For Health & Wellness Creators</h2>
+        <h5>Create content, get subscribers, grow your business</h5>
+        <div class="button" *ngIf="!(isLoggedIn$ | async)"><button mat-button routerLink="/register">Join Today</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="home-today">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2>Get Started Today</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-4 col-sm-6 col-12">
+        <mat-card >
+          <div mat-card-image>
+              <img src="/assets/images/join-playbook.png" alt="Join Playbook" class="img-fluid" width="150">
+          </div>
+          <mat-card-content>
+            <h3>Join Playbook</h3>
+            <p>Membership includes account, support, training and a channel where you can turn your training and expertise into a monthly extra income.</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-md-4 col-sm-6 col-12">
+        <mat-card >
+          <div mat-card-image>
+              <img src="/assets/images/expand-your-offering.png" alt="Expand Your Offering" class="img-fluid" width="90">
+          </div>
+          <mat-card-content>
+            <h3>Expand Your Offering</h3>
+            <p>Create weekly workouts, programs, contest, nutrition, and vlogs to give your clients and followers a comprehensive mobile offering</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-md-4 col-sm-6 col-12">
+        <mat-card >
+          <div mat-card-image>
+              <img src="/assets/images/grow-your-business.png" alt="Grow Your Business" class="img-fluid" width="150">
+          </div>
+          <mat-card-content>
+            <h3>Grow Your Business</h3>
+            <p>We give you the best tools and training available for you to build your subscriber base and create a meaningful recurring monthly income</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <pre>{{testimonial | json}}</pre> -->
+
+<div class="home-testi">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2>Why create on Playbook?</h2>
+        <ngb-carousel *ngIf="testimonial">
+          <ng-template ngbSlide *ngFor="let item of testimonial">
+            <div class="image"><img [src]="gs.basePath + item.image" alt="{{item.title}}" class="img-fluid rounded-circle"></div>
+            <div class="carousel-caption">
+              <div class="text" [innerHtml]="item.content"></div>
+              <div class="author">{{item.title}}</div>
+            </div>
+          </ng-template>
+
+          <!-- <ng-template ngbSlide>
+            <div class="image"><img [src]="images[1]" alt="Random second slide" class="img-fluid rounded-circle"></div>
+            <div class="carousel-caption">
+              <div class="text">
+                To me, Playbook is the future of the digital health & wellness. It's seamless for me to create and share my expertise with my fans and followers while building a stable income. My celebrity clients love it as well. It's so easy for them when traveling!
+              </div>
+              <div class="author">DON Saladino</div>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <div class="image"><img [src]="images[2]" alt="Random third slide" class="img-fluid rounded-circle"></div>
+            <div class="carousel-caption">
+              <div class="text">
+                To me, Playbook is the future of the digital health & wellness. It's seamless for me to create and share my expertise with my fans and followers while building a stable income. My celebrity clients love it as well. It's so easy for them when traveling!
+              </div>
+              <div class="author">DON Saladino</div>
+            </div>
+          </ng-template> -->
+
+        </ngb-carousel>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="home-benefits">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+          <h2>Features & Benefits</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-4 col-sm-6 col-12">
+        <mat-card>
+          <mat-card-content>
+            <h3>Coaching Channel</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-md-4 col-sm-6 col-12">
+        <mat-card>
+          <mat-card-content>
+            <h3>Coaching Channel</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-md-4 col-sm-6 col-12">
+        <mat-card>
+          <mat-card-content>
+            <h3>Coaching Channel</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-md-4 col-sm-6 col-12">
+        <mat-card>
+          <mat-card-content>
+            <h3>Coaching Channel</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-md-4 col-sm-6 col-12">
+        <mat-card>
+          <mat-card-content>
+            <h3>Coaching Channel</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-md-4 col-sm-6 col-12">
+        <mat-card>
+          <mat-card-content>
+            <h3>Coaching Channel</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div class="row" *ngIf="!(isLoggedIn$ | async)">
+        <div class="col-12 text-center">
+            <button mat-button routerLink="/register">Join Today</button>
+        </div>
+      </div>
+  </div>
+</div>

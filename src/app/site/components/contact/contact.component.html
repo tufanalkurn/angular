@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-sm-9 col-12 mx-auto py-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-center">Contact Form</h5>
+          <form novalidate [formGroup]="contact" (ngSubmit)="onContact(contact)" autocomplete="off">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" class="form-control" formControlName="name" placeholder="Enter" [ngClass]="{ 'is-invalid' : form.name.errors && form.name.touched }">
+              <div class="invalid-feedback" *ngIf="form.name.errors && form.name.touched">
+                <div *ngIf="form.name.errors.required">Name is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="text" class="form-control" formControlName="email" placeholder="Enter" [ngClass]="{ 'is-invalid' : form.email.errors && form.email.touched }">
+              <div class="invalid-feedback" *ngIf="form.email.errors && form.email.touched">
+                <div *ngIf="form.email.errors.required">Email is required</div>
+                <div *ngIf="form.email.errors.email">Email must be a valid email address</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Subject</label>
+              <input type="text" class="form-control" formControlName="subject" placeholder="Enter" [ngClass]="{ 'is-invalid' : form.subject.errors && form.subject.touched }">
+              <div class="invalid-feedback" *ngIf="form.subject.errors && form.subject.touched">
+                <div *ngIf="form.subject.errors.required">Subject is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea class="form-control" formControlName="body" placeholder="Enter" [ngClass]="{ 'is-invalid' : form.body.errors && form.body.touched }"></textarea>
+              <div class="invalid-feedback" *ngIf="form.body.errors && form.body.touched">
+                <div *ngIf="form.body.errors.required">Message is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <ngx-recaptcha2
+                  [siteKey]="siteKey"
+                  (expire)="handleExpire()"
+                  (load)="handleLoad()"
+                  (success)="handleSuccess($event)"
+                  formControlName="reCaptcha">
+              </ngx-recaptcha2>
+              <div class="invalid-feedback" *ngIf="form.reCaptcha.errors && form.reCaptcha.touched">
+                <div *ngIf="form.reCaptcha.errors.required">Captcha is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-lg btn-block btn-primary" [disabled]="!contact.valid">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

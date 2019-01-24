@@ -1,0 +1,29 @@
+
+@import "sass/variables";
+@import "sass/mixins";
+@import "sass/utilities";
+
+.navbar-light {background-color: transparent !important; border: none !important; padding-top: 20px; padding-bottom: 15px;}
+.navbar-brand {font-size: 20px; font-weight: bold; font-style: normal; font-stretch: normal; line-height: normal; letter-spacing: normal; color: #020c3a;
+    img {margin-right: 12px;}
+}
+.dropdown-toggle {width: 34px; height: 34px; box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.05); background-color: $white; border-radius: 50%;
+    &:after {content: none;}
+}
+.dropdown-menu {min-width: 230px; left: auto !important; right: -100px; margin-top: 10px;
+    .profile {position: relative; overflow: visible; padding-bottom: 6px;
+        &:after {content: ""; width: 0px; height: 0px; border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 8px solid $white; position: absolute; top: -15px; left: 50%; margin-left: -8px;}
+        .title {font-size: 16px; font-weight: bold; font-style: normal; font-stretch: normal; line-height: normal; letter-spacing: normal; color: #020c3a; padding-bottom: 4px; width: 100%;}
+        .sub {opacity: 0.5; font-size: 14px; font-weight: normal; font-style: normal; font-stretch: normal; line-height: normal; letter-spacing: normal; color: #020c3a; 
+            .fa {color: #7ed321; font-size: 12px;}
+        }
+    }
+    .py-2 {padding-top: 3px !important; padding-bottom: 3px !important; min-height: 32px;}
+}
+@media(max-width: 1199px) {
+    .dropdown-menu {right: 0px; position: absolute !important;
+        .profile {
+            &:after {left: 93%;}
+        }
+    }
+}

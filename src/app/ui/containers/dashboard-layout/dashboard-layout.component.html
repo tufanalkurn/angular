@@ -1,0 +1,22 @@
+<div class="dashboard-bg">
+  <app-header></app-header>
+  <section class="all-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-12">
+          <aside>
+            <h6>Get Started</h6>
+            <ul class="category">
+              <li *ngFor="let cat of item; index as i"><a [routerLink]="['blog', cat.slug]" [routerLinkActive]="['active', cat.slug]"><span>{{ i+1 }}</span> {{ cat.name }}</a></li>
+            </ul>
+          </aside>
+        </div>
+        <div class="col-md-9 col-12">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- <app-footer></app-footer> -->
+</div>
+

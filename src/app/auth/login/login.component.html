@@ -1,0 +1,44 @@
+<div class="login-page d-flex align-items-center justify-content-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="card login-box">
+          <div class="card-body">
+            <h5 class="card-title text-center">
+              <a [routerLink]="['/']"><img src="/assets/images/logo.png" alt="" class="img-fluid"></a>
+            </h5> 
+            <form novalidate (ngSubmit)="onSubmit(form)" [formGroup]="form" autocomplete="off">
+              <div *ngIf="gs.errors.length" class="alert alert-danger" role="alert">
+                  <h4 class="alert-heading">Error Summary:</h4>
+                  <p *ngFor="let error of gs.errors;" class="mb-0">{{ error }}</p>
+              </div>
+              <!-- <div class="facebook-login">
+                  <a href="javascript:void(0)" class="btn btn-facebook btn-block"><i class="fa fa-facebook-official"></i> Continue with Facebook</a>
+              </div> -->
+              <div class="or">
+                <span>Or sigh in With Email</span>
+              </div>
+              <mat-form-field appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input matInput placeholder="Email" formControlName="username" required>
+                  <mat-error *ngIf="form.get('username').hasError('required') && (submitted || form.get('username').touched)">Email address is required</mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                  <mat-label>Password</mat-label>
+                  <input matInput placeholder="Password" type="password" formControlName="password" required>
+                  <mat-error *ngIf="form.get('password').hasError('required') && (submitted || form.get('password').touched)">Password is required</mat-error>
+              </mat-form-field>
+              <div class="form-group d-flex align-items-center forgot pb-3">
+                <div class="col pl-0"><a [routerLink]="['/forgot-password']" class="btn btn-link">Forgot Password</a></div>
+                <button class="btn btn-primary" type="submit" [disabled]="!form.valid" [appLadda]="submitted">Sign In</button>
+              </div>
+              <div class="form-group mb-0 text-center account-Sign-up">
+                No account? <a [routerLink]="['/register']" class="float-right1">Sign up here</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

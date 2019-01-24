@@ -1,0 +1,22 @@
+@import "sass/variables";
+@import "sass/mixins";
+@import "sass/utilities";
+
+.dashboard-bg {background-color: #ecf0f6; width: 100%;; min-height: 100vh; float: left;}
+
+aside {
+    h6 {font-size: 13px; font-weight: bold; font-style: normal; font-stretch: normal; line-height: 3.08; letter-spacing: 1px; color: #020c3a; margin-bottom: -6px; text-transform: uppercase;}
+    ul {list-style: none; padding: 0px;
+        li {font-size: 16px; font-weight: normal; font-style: normal; font-stretch: normal; line-height: 2.5; letter-spacing: normal;  color: #020c3a;
+            a {color: inherit; display: flex; align-items: center; transition: all 0.3s ease-in-out;
+                span {width: 20px; height: 20px; background-color: rgba(#020c3a, 0.15); color: #020c3a; font-size: 11px; margin-right: 10px; display: flex; align-items: center; justify-content: center; border-radius: 50%;}
+                &:hover {color: $primary; text-decoration: none;
+                    span {background-color: $primary; color: $white;}
+                }
+                &.active {color: $primary; text-decoration: none; font-weight: 600;
+                    span {background-color: $primary; color: $white;}
+                }
+            }
+        }
+    }
+}

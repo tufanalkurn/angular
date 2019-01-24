@@ -1,0 +1,43 @@
+
+// Typography
+$font-family-sans-serif: "Raleway", sans-serif;
+
+//$base-url: /mealrun/dist;
+
+// Theme Color 
+$primary:       #f74b6d !default;
+$secondary:     #333b44 !default;
+$success:       #4CAF50 !default;
+$info:          #2196F3 !default;
+$warning:       #FFC107 !default;
+$danger:        #FF5252 !default;
+$dark:          #020c3a !default;
+$white:         #ffffff !default;
+$gray-100:      #f8f9fa !default;
+$gray-200:      #e9ecef !default;
+$gray-300:      #dee2e6 !default;
+$gray-400:      #ced4da !default;
+$gray-500:      #adb5bd !default;
+$gray-600:      #6c757d !default;
+$gray-700:      #495057 !default;
+$gray-800:      #343a40 !default;
+$gray-900:      #212529 !default;
+$black:         #000000 !default;
+//
+$blue-light:    #ecfdf7 !default;
+$pink:          #d4c512 !default;
+
+
+$theme-colors: (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger,
+    "light":      $gray-200,
+    "dark":       $dark,
+    "white":       $white,
+);
+
+

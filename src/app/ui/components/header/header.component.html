@@ -1,0 +1,24 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container"> 
+        <a class="navbar-brand" routerLink="/account"><img src="/assets/images/logo-small.png" alt="" width="20"> <span *ngIf="user">{{ userName }}</span></a>
+        <ul class="navbar-nav ml-auto" *ngIf="(isLoggedIn$ | async)">
+          <li class="nav-item" ngbDropdown>
+            <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-center" ngbDropdownToggle href="javascript:void(0)"><i class="fa fa-user"></i></a>
+            <div ngbDropdownMenu>
+              <a class="dropdown-item profile" routerLink="/account">
+                <div class="title" *ngIf="user">{{ userName }}</div>
+                <div class="sub"><i class="fa fa-circle"></i> Active subscription</div>
+              </a>
+              <div class="dropdown-divider mb-2"></div>
+              <a class="dropdown-item py-2" routerLink="/account">Dashboard</a>
+              <a class="dropdown-item py-2" routerLink="/account/update-profile">Profile</a>
+              <a class="dropdown-item py-2" routerLink="/account/membership" >Membership</a>
+              <a class="dropdown-item py-2" href="javascript:void(0);" (click)="logout()">Logout</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+</header>
+ 

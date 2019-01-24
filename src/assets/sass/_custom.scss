@@ -1,0 +1,14 @@
+.dropdown-menu.show {opacity: 1; transform: scale(1);}
+.dropdown-menu {opacity: 0; border: 0; transform: scale(0); transform-origin: 0 0; will-change: transform, opacity; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 2px 2px 0 rgba($black, 0.14), 0 3px 1px -2px rgba($black, 0.2), 0 1px 5px 0 rgba($black, 0.12);}
+.dropdown-item {position: relative; display: flex; flex-flow: row wrap; align-items: center; min-width: 7rem; max-width: 17.5rem; min-height: 3rem; padding: 0.8rem 1rem 0.8rem 1rem; overflow: hidden; line-height: 1; text-overflow: ellipsis; word-wrap: break-word;}
+
+.custom-card {margin-bottom: 20px; border-radius: 6px; box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.07); background-color: $white; border: none;
+    .card-header {background-color: transparent; border-bottom-color: #ecedf1; display: flex; align-items: center; 
+        .card-title  {margin-bottom: 0px; font-size: 24px; font-weight: bold; font-style: normal; font-stretch: normal; line-height: normal; letter-spacing: normal; color: #020c3a; flex-basis: 0; flex-grow: 1; max-width: 100%; padding-right: 10px;
+            small {width: 100%; float: left; font-size: 16px; font-weight: normal; font-style: normal; font-stretch: normal; line-height: normal; letter-spacing: normal; color: #81869d;}
+        }
+        .btn {min-width: 100px; height: 40px; border-radius: 5px; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12); background-image: linear-gradient(to bottom, #ff6c5f, #ee2180); font-size: 18px; font-weight: 800; border: none; transition: background 0.3s;
+            &:hover {background-image: linear-gradient(to bottom, #ee2180, #ff6c5f);}
+        }
+    }
+}

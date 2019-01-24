@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Apply Promo Code</h1>
+<div mat-dialog-content>
+    <mat-form-field appearance="outline">
+        <mat-label>Promo Code</mat-label>
+        <!-- <input matInput placeholder="Promo Code" class="d-none" [(ngModel)]="data.animal"> -->
+        <input matInput placeholder="Promo Code" [(ngModel)]="promoCode">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button class="btn btn-info" (click)="onNoClick()">Close</button>
+    <button mat-button class="btn btn-primary" (click)="onApplyClick()">Apply</button>
+</div>

@@ -1,0 +1,32 @@
+<div class="category-page">
+    <div class="card custom-card">
+      <div class="card-body" *ngIf="ncate && ncateItem">
+        <h2 class="heading">{{ ncate.name }}</h2>
+        <div class="video" *ngIf="ncate.media">
+          <video controls>
+            <source src="{{ gs.videoPath + ncate.media.path }}" type="{{ ncate.media.mimetype }}">
+          </video>
+        </div>
+        <div class="desc" *ngIf="ncate.description">
+          {{ ncate.description }}
+        </div>
+        <ul class="article-list">
+          <li *ngFor="let item of ncateItem">
+            <div class="image" *ngIf="item.image">
+              <img src="{{ gs.basePath + item.image.path }}" alt="Image" class="img-fluid">
+            </div>
+            <div class="caption" [ngClass]="{'w-100 pl-0': item.image == null}">
+              <h4 class="text-truncate"><a [routerLink]="['/account/blog', blogCatSlug, item.slug]">{{ item.title }}</a></h4>
+              <div class="text">{{ item.content | slice:0:120 }}</div>
+            </div>
+          </li>
+        </ul>
+        <div class="pagenav">
+          <a class="btn" [ngClass]="{'disabled': prevCateSlug == false}" [routerLink]="['/account/blog', prevCateSlug]">Back</a>
+          <a class="btn text-primary pull-right" [routerLink]="['/account/blog', blogCatSlug, nextSlug]">Continue</a>
+        </div>
+      </div>
+    </div>
+</div> 
+
+<!-- <pre>{{ ncateItem[0] | json }}</pre> -->

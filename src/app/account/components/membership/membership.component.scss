@@ -1,0 +1,12 @@
+@import "sass/variables";
+@import "sass/mixins";
+@import "sass/utilities";
+
+
+.payment-box {text-align: center;
+    .total {margin-bottom: 25px; color: #171e33; text-align: center; font-size: 18px;}
+    .btn-primary {min-width: 160px; height: 44px; border-radius: 5px; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12); background-image: linear-gradient(to bottom, #ff6c5f, #ee2180); font-size: 16px; font-weight: 800; border: none; color: $white;}
+}
+.stripe-card {margin-bottom: 15px; float: left; width: 100%; padding: 0px 15%;
+    ngx-stripe-card {border: 1px solid #ddd; padding: 0px 10px; width: 100%; float: left;}
+}

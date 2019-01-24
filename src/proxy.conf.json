@@ -1,0 +1,8 @@
+{
+    "/api": {
+      "target": "https://playbook.alk",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+  }

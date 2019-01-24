@@ -1,0 +1,239 @@
+/* You can add global styles to this file, and also import other style files */
+//@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,600,600i,700,700i,800,800i,900,900i');
+
+@import "sass/variables";
+@import "sass/mixins";
+@import "sass/utilities";
+
+@import "~bootstrap/scss/bootstrap";
+@import "~font-awesome/css/font-awesome.css";
+@import "~ng-snotify/styles/material.css";
+@import "~ladda/css/ladda";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import '~@angular/material/theming';
+
+@import "sass/custom";
+
+body {font-family: 'Nunito Sans';}
+
+.all-content {@include full-width(); min-height: calc(73vh - 67px);}
+
+.home-header {padding: 10px 0px;
+    .navbar-brand {position: absolute; left: 50%; transform: translateX(-50%);}
+    @media(min-width: 768px) {
+        .navbar-nav {
+            > li {
+                + li {padding-left: 8px;}
+                > a {width: 96px; height: 34px; border-radius: 17px; background-color: #f4f7fc; font-size: 14px; font-weight: 800; text-align: center; color: $dark; transition: all 0.3s ease-in-out;
+                    &.dashboard {width: 130px;}
+                    &:hover {background-color: darken(#f4f7fc, 7.5);}
+                }
+            }
+        }
+    }
+    .caption {margin: 30px 0px;
+        .image {margin-bottom: 30px;}
+        h2 {font-size: 36px; font-weight: 800; font-style: normal; font-stretch: normal; line-height: normal; letter-spacing: normal; text-align: center; color: $dark; }
+        h5 {font-size: 24px; font-weight: normal; font-style: normal; font-stretch: normal; line-height: normal; letter-spacing: normal; text-align: center; color: $dark; padding-bottom: 15px;}
+        .button {text-align: center; margin-bottom: 20px;
+            .mat-button {min-width: 220px; height: 60px; border-radius: 30px; background-image: linear-gradient(105deg, #ff6c5f, #ee2180); font-size: 24px; font-weight: 800; 
+            color: $white;}
+        }
+    }
+    @media(max-width: 767px) {
+        .navbar-brand {position: static;  transform: none;}
+    }
+    @media(max-width: 574px) {
+        .navbar-brand {position: static; transform: none;}
+        .caption {margin: 10px 0px;
+            h2 {font-size: 24px;}
+            h5 {font-size: 18px;}
+        }
+    }
+} // Home header css end
+
+.home-today {padding: 50px 0px 80px 0px; background-color: #f4f7fc;
+    h2 {text-align: center; color: $dark; font-size: 36px; font-weight: 800; margin-bottom: 40px;}
+    .mat-card-image {padding: 45px 0px 20px 0px;}
+    .mat-card-content {padding: 0px 15px;}
+    .mat-card {text-align: center; border-radius: 10px; box-shadow: 0 2px 10px 0 rgba($black, 0.05);
+        h3 {font-size: 22px; font-weight: 700; color: #171e33; text-align: center; font-style: normal; font-stretch: normal; line-height: normal; letter-spacing: normal; margin-bottom: 15px;}
+        p {font-size: 16px; font-weight: normal; color: #171e33; text-align: center; font-style: normal; font-stretch: normal; line-height: normal; letter-spacing: normal; line-height: 28px; padding-bottom: 20px;}
+    }
+    @media(max-width: 767px) {padding: 30px 0px 20px 0px;
+        h2 {font-size: 30px; margin-bottom: 25px;}
+        .mat-card {margin-bottom: 25px;}
+    }
+} // Home today css end
+
+.home-testi {padding: 50px 0px 80px 0px;
+    h2 {text-align: center; color: $dark; font-size: 36px; font-weight: 800; margin-bottom: 40px;}
+    .carousel-item {text-align: center;}
+    .carousel-caption {position: static; }
+    .carousel-indicators {margin-bottom: 0px; bottom: -15px;
+        li {background-color: #dadee4; width: 10px; height: 10px; border-radius: 30px; border-top-width: 0px; border-bottom-width: 0px;
+            &.active {background-color: #f6486f;}
+        }
+    }
+    .image {text-align: center; }
+    .text {color: #020c3a; font-size: 22px; max-width: 720px; margin: 0px auto 20px auto;}
+    .author {color: #020c3a; font-size: 14px; font-weight: 600; opacity: 0.5; letter-spacing: 2.3px; text-transform: uppercase;}
+    @media(max-width: 767px) {padding: 30px 0px 40px 0px;
+        h2 {font-size: 30px; margin-bottom: 25px;}
+    }
+} // Home testimonial css end
+
+.home-benefits {padding: 50px 0px 80px 0px; color: $white; background-color: #020c3a;
+    h2 {text-align: center; font-size: 36px; font-weight: 800; margin-bottom: 40px;}
+    .mat-button {width: 220px; height: 60px; border-radius: 30px; background-image: linear-gradient(105deg, #ff6c5f, #ee2180); font-size: 24px; font-weight: 800; 
+        color: $white;}
+    .mat-card-content {padding: 0px 15px;}
+    .mat-card {text-align: center; background-color: transparent; color: $white; box-shadow: none;
+        h3 {font-size: 24px; font-weight: 800; text-align: center; font-style: normal; font-stretch: normal; line-height: normal; letter-spacing: normal; margin-bottom: 18px;}
+        p {font-size: 18px; font-weight: 300; opacity: 0.5; text-align: center; font-style: normal; font-stretch: normal; letter-spacing: normal; padding-bottom: 20px; color: $white;}
+    }
+    @media(max-width: 767px) {padding: 30px 0px 30px 0px;
+        h2 {font-size: 30px; margin-bottom: 10px;}
+        .mat-card {padding-bottom: 0px;
+            h3 {font-size: 20px; margin-bottom: 10px;}
+            p {padding-bottom: 15px;}
+        }
+    }
+} // Home testimonial css end
+
+.login-box {max-width: 440px; margin: 0px auto; border: none; padding: 20px 0px;
+    .card-body {padding: 0px;}
+    .card-title {margin-bottom: 40px;
+        img {max-width: 100%;;}
+    }
+    .mat-form-field {width: 100%; }
+    .mat-form-field-appearance-outline .mat-form-field-subscript-wrapper {padding-left: 0px;}
+    //.mat-form-field-infix {height: 54px;}
+    //.mat-form-field-appearance-outline .mat-form-field-infix {padding: 0.5em 0 0.5em 0;}
+    .forgot .btn-link {padding-left: 0px; font-size: 18px; 
+        &:hover {text-decoration: none; }
+    }
+    .btn-primary {min-width: 174px; height: 54px; border-radius: 5px; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12); background-image: linear-gradient(to bottom, #ff6c5f, #ee2180); font-size: 18px; font-weight: 800; border: none;}
+    .account-Sign-up {font-size: 14px; font-weight: 600; color: $dark;
+        a {color: $primary; text-decoration: none;}
+        a:hover {color: $dark; text-decoration: underline;}
+    }
+    .facebook-login {margin-bottom: 25px; display: none;}
+    .btn-facebook {height: 54px; border-radius: 5px; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12); background-image: linear-gradient(to top, #733fff, #538de1); font-size: 18px; font-weight: 700; color: $white; padding: 10px 20px; border: none; line-height: 33px;}
+    .or {text-align: center; margin-bottom: 25px; position: relative;
+        &:before {content: ""; position: absolute; width: 100%; height: 1px; left: 0px; top: 50%; background-color: #020c3a; opacity: 0.1; z-index: 1;}
+        span {background-color: $white; position: relative; z-index: 2; letter-spacing: 2px; font-size: 12px; font-weight: 600; color: rgba(2, 12, 58, 0.5); text-transform: uppercase; padding: 0px 8px;}
+    }
+    @media(max-width: 767px) {
+        .card-title {margin-bottom: 20px;}
+    }
+} // Login Box css end
+
+.login-page {min-height: 100vh; 
+} // Login page css end
+
+.regisster-page {min-height: 100vh; position: relative;
+    &:after {content: ""; position: absolute; right: 0px; top: 0px; height: 100%; width: 50%; z-index: 1; background: url("/assets/images/login-image-2.jpg") no-repeat left top; background-size: cover;}
+    @media(max-width: 991px) {
+        .login-box {max-width: 300px;}
+    }
+    @media(max-width: 767px) {padding: 20px 0px;
+        .login-box {max-width: 660px; background-color: #fff; position: relative; z-index: 8; padding: 30px;}
+        &:after {width: 100%;}
+    }
+} // Login page css end
+
+.membership-page {min-height: 100vh; background-color: #f4f7fc;
+    .mat-checkbox-inner-container {margin-top: 5px;}
+    .stripe-card {margin-bottom: 15px; float: left; width: 100%; padding: 0px 15%;
+        .mat-form-field {width: 100%;}
+        ngx-stripe-card {border: 1px solid #ddd; padding: 0px 10px; width: 100%; float: left;}
+    } 
+    .btn-primary {min-width: 200px; height: 54px; border-radius: 5px; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12); background-image: linear-gradient(to bottom, #ff6c5f, #ee2180); font-size: 18px; font-weight: 800; border: none;}
+    .card {border-radius: 6px; box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.05); background-color: $white; border: none; }
+    .card-title {margin-bottom: 25px;
+        h4 {font-size: 30px; font-weight: 800; color: $dark; margin-bottom: 15px;}
+        h6 {font-size: 12px; font-weight: 800; color: #020c3a; letter-spacing: 2px; text-transform: uppercase;}
+    }
+    .card-body {padding: 50px 125px;}
+    .box {max-width: 800px;} 
+    .plan {margin: 20px 0px;
+        .radio-button {width: 100%; border-radius: 10px; box-shadow: 0px 0px 0px 2px #e6e7eb inset; text-align: center; position: relative; overflow: hidden;
+            .mat-radio-label {padding: 25px; height: 160px; width: 100%; text-align: center; margin: 0px;}
+            .mat-radio-container {display: none;}
+            .mat-radio-label-content {padding: 0px; width: 100%;}
+            .title {font-size: 12px; font-weight: 800; letter-spacing: 2px; color: #424c7a; text-transform: uppercase;}
+            .price {font-size: 40px; font-weight: 800; color: #020c3a;}
+            .free {font-size: 16px; font-weight: normal; color: #020c3a; opacity: 0.5;}
+            .save {width: 100px; height: 26px; transform: rotate(45deg); background-color: #f6486f; font-size: 12px; font-weight: 800; text-align: center; color: #ffffff; position: absolute; top: 14px; right: -23px; padding: 4px; }
+            &.mat-radio-checked {box-shadow: 0px 0px 0px 2px #f6486f inset;}
+        }
+    }
+    .promo-code {margin-bottom: 20px; text-align: center; font-size: 16px;}
+    .term {border-radius: 10px; background-color: #f4f7fc; padding: 20px; margin-bottom: 40px;
+        h6 {opacity: 0.5; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-align: center; color: #020c3a; text-transform: uppercase; margin-bottom: 20px;}
+        .mat-checkbox-layout {color: #020c3a; white-space: normal; }
+    }
+    .total {margin-bottom: 25px; color: #171e33; text-align: center; font-size: 18px;}
+    .button {text-align: center;}
+} // Membership page css end
+
+.category-page {
+    .heading {font-size: 24px; font-weight: bold; font-style: normal; font-stretch: normal; line-height: normal; letter-spacing: normal; color: #020c3a; width: 100%; float: left;}
+    .video {width: 100%; float: left; margin-bottom: 15px; 
+        video {width: 100%; min-height: 250px;}
+    }
+    .desc {width: 100%; float: left; margin-bottom: 15px; font-size: 16px; font-weight: normal; font-style: normal; font-stretch: normal; line-height: 1.5; letter-spacing: normal; color: #020c3a;}
+    .article-list {padding: 0px; list-style: none; width: 100%; float: left; margin-bottom: 0px;
+        li {border-radius: 6px; box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.09); background-color: $white; margin-bottom: 20px; width: 100%; float: left; padding: 15px; border: 1px solid #eaeaea;}
+        .image {width: 140px; float: left;}
+        .caption {width: calc(100% - 140px); float: left; padding-left: 15px;
+            h4 {font-size: 20px; font-weight: bold; font-style: normal; font-stretch: normal; line-height: normal; letter-spacing: normal; color: #020c3a; margin-bottom: 4px;
+                a {color: inherit;}
+                a:hover {color: $primary; text-decoration: none;}
+            }
+            .text {font-size: 16px; color: #81869d;}
+        }
+    }
+    .pagenav {width: 100%; float: left; margin-bottom: 6px;
+        .btn {width: 120px; height: 40px; border-radius: 4px; box-shadow: 0 1px 3px 0 rgba($black, 0.09); background-color: $white; font-size: 16px; font-weight: bold; color: #020c3a; transition: all 0.3s ease-in-out; border: 1px solid #eaeaea;
+            &:hover {box-shadow: 0 1px 5px 0 rgba($black, 0.09);}
+        }
+    }
+    .video-list {list-style: none; padding-left: 0px; 
+        li {width: 180px; margin-right: 10px; margin-bottom: 10px;
+            a {cursor: pointer; border: 2px solid #ddd; text-align: center; padding: 3px; width: 100%; float: left;}
+            a:hover {color: $primary;}
+            a.active {border-color: $primary;}
+        }
+    }
+    @media(max-width: 450px) {
+        .heading {font-size: 18px;}
+        .article-list li {
+            .image {width: 100%; margin-bottom: 6px; text-align: center;}
+            .caption {width: 100% !important;
+                h4 {font-size: 16px;}
+            }
+        }
+    }
+} // Category page css end
+
+.radio-group-member {
+    .col {padding: 0px;}
+    .mat-radio-button {height: 80px; padding: 10px; margin-bottom: 15px; border-radius: 6px; border: 1px solid #eaeaea; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.09); background-color: $white; width: 100%;
+        &.mat-radio-checked {border: 1px solid $primary;}
+        &.mat-radio-disabled {opacity: 0.6;}
+    }
+    .mat-radio-label {width: 100%; float: left; margin: 0px;}
+    .mat-radio-container {display: none;}
+    .mat-radio-label-content {width: 100%; display: flex; align-items: center;}
+    .left {
+        .img {margin-right: 20px;}
+        .title {font-size: 20px; font-weight: 600; color: #020c3a;}
+    }
+    .right {
+        .price {font-size: 24px; font-weight: 800; color: #020c3a; text-align: center;}
+        .month {font-size: 10px; font-weight: 800; letter-spacing: 1.7px;  color: #020c3a; text-align: center; text-transform: uppercase;}
+    }
+} // Radio membership page

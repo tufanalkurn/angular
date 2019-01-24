@@ -1,0 +1,30 @@
+
+<div class="category-page" *ngIf="blogCatSlug && blog">
+    <div class="card custom-card">
+      <div class="card-body">
+        <h2 class="heading">{{ blog.title }}</h2>
+        <div class="video">
+          <!-- <pre>{{blog.videos |json}}</pre> -->
+          <div class="vimeo" *ngIf="blog.videos"> 
+            <div [innerHtml]="vimeo_iframe_html"></div>             
+              <ul class="video-list d-flex flex-wrap mt-2" *ngIf="blog.videos.length > 1">
+                <li class="text-truncate1" *ngFor="let video of blog.videos; let i=index">
+                  <a class="" (click)="loadVideo(video)" (click)="activateClass(i)" [ngClass]="{'active': selectedIndex == i, 'list-video': true}">
+                    <img src="{{video.picture.link}}" alt="" class="img-fluid">
+                  </a>          
+                </li>
+              </ul>    
+          </div>
+          
+        </div>
+        <div class="desc">
+          <div [innerHtml]="blog.content"></div>
+        </div>
+        <div class="pagenav">
+          <a class="btn" [ngClass]="{disabled: (prevSlug == false)}" [routerLink]="['/account/blog', blogCatSlug , prevSlug]">Back</a>
+          <a class="btn text-primary pull-right" [ngClass]="{disabled: (nextSlug == false)}" [routerLink]="['/account/blog', blogCatSlug, nextSlug]">Next</a>
+        </div>
+      </div>
+    </div> 
+  </div>
+ 

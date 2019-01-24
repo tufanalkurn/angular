@@ -1,0 +1,65 @@
+<div class="regisster-page d-flex align-items-center justify-content-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="card login-box mx-0">
+          <div class="card-body">
+            <h5 class="card-title text-center">
+                <a [routerLink]="['/']"><img src="/assets/images/logo.png" alt="" width="200"></a>
+            </h5>
+            <form novalidate (ngSubmit)="onRegister(form)" [formGroup]="form" autocomplete="off">
+              <div *ngIf="gs.errors.length" class="alert alert-danger" role="alert">
+                  <h4 class="alert-heading">Error Summary:</h4>
+                  <p *ngFor="let error of gs.errors;" class="mb-0">{{ error }}</p>
+              </div> 
+              <div class="facebook-login">
+                  <a href="javascript:void(0)" class="btn btn-facebook btn-block"><i class="fa fa-facebook-official"></i> Continue with Facebook</a>
+              </div>
+              <div class="or">
+                  <span>Or sigh in With Email</span>
+              </div>
+              <mat-form-field appearance="outline">
+                  <mat-label>Full Name</mat-label>
+                  <input matInput placeholder="Full Name" formControlName="full_name" required>
+                  <mat-error *ngIf="form.get('full_name').hasError('required') && (submitted || form.get('full_name').touched)">Full Name is required</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input matInput placeholder="Email" formControlName="email" required>
+                  <mat-error *ngIf="form.get('email').hasError('required') && (submitted || form.get('email').touched)">Email is required</mat-error>
+              </mat-form-field>
+              
+              <mat-form-field appearance="outline">
+                  <mat-label>Password</mat-label>
+                  <input matInput placeholder="Password" formControlName="password" [type]="hide ? 'text' : 'password'" required>
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                  <mat-error  *ngIf="f.password.errors && f.password.touched">
+                      <div *ngIf="f.password.errors.required">Password is required</div>
+                      <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                  </mat-error>
+              </mat-form-field>
+              
+              <mat-form-field appearance="outline">
+                  <mat-label>Confirm Password</mat-label>
+                  <input matInput placeholder="Confirm Password" type="password" formControlName="confirmPassword" required>
+                  <mat-error  *ngIf="f.confirmPassword.errors && f.confirmPassword.touched">
+                    <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                    <div *ngIf="f.confirmPassword.errors.minlength">Confirm Password must be at least 6 characters</div>
+                    <div *ngIf="f.confirmPassword.errors.mustMatch">Confirm Password must match</div>
+                  </mat-error>
+              </mat-form-field>
+              
+              <div class="form-group">
+                <button type="submit" class="btn btn-lg w-100 btn-primary" [disabled]="!form.valid" [appLadda]="submitted">Sign Up</button>
+              </div>
+              <div class="form-group mb-0 text-center account-Sign-up">
+                  Already have an account?  <a [routerLink]="['/login']" class="float-right1">Sign in</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

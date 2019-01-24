@@ -1,0 +1,64 @@
+<div class="card custom-card">
+    <div class="card-header">
+        <h5 class="card-title ">
+            Manage Membership
+            <small>You have an active <b>monthly</b> subscription</small>
+        </h5>
+    </div>
+    <div class="card-body">
+      <form novalidate (ngSubmit)="agreement()" [formGroup]="form">
+        <!-- <div *ngIf="!userRol == Promo">
+          <div class="alert alert-success" role="alert">
+              Your membership plan is active.
+            </div>
+        </div> -->
+        <div>
+          <div class="plan">
+            <mat-radio-group class="radio-group-member" formControlName="plan" *ngIf="user">
+              <div class="col" *ngFor="let plan of plans; last as isLast;">  
+                <mat-radio-button class="radio-button" value="{{plan.source_plan}}" (change)="selectedPlan(plan)" [disabled]="user.userProfile.plan_id == plan.id">
+                  <div class="left d-flex align-items-center w-100 col pl-0">
+                    <div class="img">
+                      <div *ngIf="user.userProfile.plan_id == plan.id; else loggedOut">
+                          <img src="/assets/images/logo-small-g.png" alt="" width="35">
+                      </div>
+                      <ng-template #loggedOut>
+                          <img src="/assets/images/logo-small.png" alt="" width="35">
+                      </ng-template>
+                    </div>
+                    <div class="title">{{plan.name}}</div>
+                  </div>
+                  <div class="right">
+                    <div class="price">{{plan.amount | currency:'USD' }}</div>
+                    <div class="month">{{plan.name}}</div>
+                  </div>
+                </mat-radio-button>
+              </div>
+              <mat-error *ngIf="form.get('plan').hasError('required') && (submitted || form.get('plan').touched)">Plan is required</mat-error>
+            </mat-radio-group>
+          </div>
+
+          <div class="payment-box" *ngIf="selectedPlanAmount">
+            <div class="total">
+                Billed <b>{{ selectedPlanAmount | currency:'USD' }}</b> today, hereafter <b> {{selectedPlanAmount | currency:'USD' }} </b> per {{ selectedPlanDuration }}
+            </div>   
+            <!-- <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Jane Doe" type="text" formControlName="name" required>
+                <mat-error *ngIf="form.get('name').hasError('required') && (submitted || form.get('name').touched)">Name is required</mat-error>
+            </mat-form-field>  -->
+            <div *ngIf="!user.userProfile.plan_id" class="stripe-card">
+              <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>                
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" [appLadda]="submitted" type="submit">Upgrade</button>
+            </div>
+          </div>
+        </div>
+      </form> 
+      <div class="mt-0 text-center" *ngIf="displayCancelBtn">
+        <button class="btn btn-link" [appLadda]="cancelsubmit" type="button" (click)="cancellation()">Cancel Subscription</button>
+      </div> 
+      
+    </div>
+</div>
